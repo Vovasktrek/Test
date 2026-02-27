@@ -60,3 +60,11 @@ API → Airflow → PostgreSQL (raw schema) → DWH → BI
 - volatility
 - total_volume
 
+## Дашборд
+
+BI-система: Yandex DataLens
+
+Ссылка на опубликованный дашборд:
+https://datalens.yandex/your_dashboard_link
+
+Скриншоты находятся в папке /screenshots
