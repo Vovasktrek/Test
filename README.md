@@ -1,59 +1,38 @@
-# DWH Prototype COVID-19 Analytics
+# DWH Prototype – COVID-19 Analytics
 
-## 1. Выбранный источник данных
+## 1. Источник данных
 
-### Название
-Our World in Data – COVID-19 Dataset
+Источник: Our World in Data  
+Ссылка: https://ourworldindata.org/covid-data  
+CSV: https://covid.ourworldindata.org/data/owid-covid-data.csv  
 
-### Ссылка
-https://ourworldindata.org/coronavirus
+Почему выбран:
 
-Прямая ссылка на CSV:
-https://covid.ourworldindata.org/data/owid-covid-data.csv
+- Бесплатный открытый источник
+- Полная историческая статистика
+- Подходит для построения витрин и BI
 
-### Формат
-CSV, ежедневное обновление
+Основные поля:
 
----
-
-## 2. Описание структуры данных
-
-### Таблица 1 — Данные по заболеваемости
-
-Поля:
-
-- iso_code (TEXT)
-- continent (TEXT)
-- location (TEXT)
-- date (DATE)
-- total_cases (NUMERIC)
-- new_cases (NUMERIC)
-- total_deaths (NUMERIC)
-- new_deaths (NUMERIC)
-- total_cases_per_million (NUMERIC)
-- total_deaths_per_million (NUMERIC)
+- location (text)
+- date (date)
+- total_cases (numeric)
+- new_cases (numeric)
+- total_deaths (numeric)
+- new_deaths (numeric)
+- total_vaccinations (numeric)
+- population (numeric)
 
 ---
 
-### Таблица 2 — Данные по вакцинации
+## 2. Архитектура
 
-Поля:
-
-- iso_code (TEXT)
-- location (TEXT)
-- date (DATE)
-- total_vaccinations (NUMERIC)
-- people_vaccinated (NUMERIC)
-- people_fully_vaccinated (NUMERIC)
-- new_vaccinations (NUMERIC)
-- total_vaccinations_per_hundred (NUMERIC)
+API → Airflow → PostgreSQL (raw schema) → DWH → BI
 
 ---
 
-## 3. Обоснование выбора источника
+## 3. Запуск проекта
 
-- Открытый бесплатный доступ
-- Регулярное обновление данных
-- Исторические данные с 2020 года
-- Подходит для построения DWH и витрин
-- Удобен для демонстрации ETL-процесса
+1. docker-compose up -d
+2. Airflow: http://localhost:8080
+3. PostgreSQL: localhost:5432
