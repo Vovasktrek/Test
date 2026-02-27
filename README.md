@@ -36,3 +36,27 @@ API → Airflow → PostgreSQL (raw schema) → DWH → BI
 1. docker-compose up -d
 2. Airflow: http://localhost:8080
 3. PostgreSQL: localhost:5432
+
+## 4. Витрина данных (Data Mart)
+
+### Выбранные метрики
+
+1. Средняя цена закрытия (avg_close_price)
+   Позволяет анализировать среднюю стоимость акции за период.
+
+2. Дневная волатильность (volatility)
+   Показывает уровень колебаний цены.
+
+3. Объем торгов (total_volume)
+   Позволяет оценить активность рынка.
+
+### Структура витрины
+
+Таблица: mart_stock_metrics
+
+- trade_date
+- ticker
+- avg_close_price
+- volatility
+- total_volume
+
